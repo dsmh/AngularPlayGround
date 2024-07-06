@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import { InputComponent } from '../input/input.component';
 import { MaterialModule } from '../../material/material.module';
+import { TestService } from '../../services/test.service';
 
 export interface Empleado {
   nombre: string
@@ -19,28 +20,25 @@ export interface Empleado {
   templateUrl: './card.component.html',
   styleUrl: './card.component.scss'
 })
-export class CardComponent {
+export class CardComponent implements OnInit, OnDestroy{
+  listaEmpleados: Empleado[] = [];
+
+  constructor(private testService: TestService){}
+
+
+
+
+  ngOnInit(): void {
+    console.log('Iniciando el componente')
+    this.listaEmpleados = this.testService.obtenerEmpleados();
+  }
+  ngOnDestroy(): void {
+    console.log('Destruyendo el componente')
+  }
 
   mensajeDelHijo = ''
 
-  listaEmpleados = [
-    {
-      nombre: 'Carlos',
-      ocupacion: 'programador'
-    },
-    {
-      nombre: 'Andres',
-      ocupacion: 'Backend developer'
-    },
-    {
-      nombre: 'Carolina',
-      ocupacion: 'Programadora'
-    },
-    {
-      nombre: 'Andrea',
-      ocupacion: 'Frontend developer'
-    },
-  ]
+  
 
   onEmit(mensaje: string) {
     this.mensajeDelHijo = mensaje
