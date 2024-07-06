@@ -1,0 +1,15 @@
+<h1>Ejemplo formulario</h1>
+<form (ngSubmit)="guardarFormulario()">
+    <input type="text" [(ngModel)]="nombreAsistente" [ngModelOptions]="{standalone: true}"/>
+    <button type="submit">Guardar</button>
+</form>
+
+<button (click)="guardarFormulario()">Guardar 2</button>
+
+<br>
+
+<ul>
+    @for (item of listaAsistentes; track $index) {
+        <li> Asistente # {{$index+1}}: {{item}}</li>
+    }
+</ul>
