@@ -1,0 +1,14 @@
+<h1>COMPONENTE DE LISTAR EMPLEADOS</h1>
+<ul>
+    @for (item of listaEmpleados; track $index) {
+        <li>
+            <p>
+                Nombre: {{item.nombre}} 
+            </p>
+            <p>
+                Ocupación: {{item.ocupacion}}
+            </p>
+        </li>
+    }
+
+</ul>

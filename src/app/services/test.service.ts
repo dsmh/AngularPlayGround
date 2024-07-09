@@ -29,11 +29,11 @@ export class TestService {
   constructor() { }
 
   agregarEmpleado(empleado: Empleado){
-    this.listaEmpleados.push(empleado)
+    this.listaEmpleados.push(empleado);
   }
 
   obtenerEmpleados(){
-    return this.listaEmpleados
+    return this.listaEmpleados;
   }
 
 }

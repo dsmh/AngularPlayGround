@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import {MatListModule} from '@angular/material/list';
 
 
 
@@ -10,12 +11,14 @@ import { MatCardModule } from '@angular/material/card';
   imports: [
     CommonModule,
     MatCardModule, 
-    MatButtonModule
+    MatButtonModule,
+    MatListModule
   ],
   exports: [
     CommonModule,
     MatCardModule, 
-    MatButtonModule
+    MatButtonModule,
+    MatListModule
   ]
 })
 export class MaterialModule { }
