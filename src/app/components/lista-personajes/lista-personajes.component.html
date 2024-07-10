@@ -1,6 +1,6 @@
 
   @for (personaje of listaPersonajes.results; track $index) {
-      <mat-card class="example-card">
+      <mat-card class="example-card" (click)="openDialog(personaje.id)">
         <mat-card-header>
           <mat-card-title>{{personaje.name}}</mat-card-title>
           <mat-card-subtitle>{{personaje.species}}</mat-card-subtitle>

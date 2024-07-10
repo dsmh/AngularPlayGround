@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MaterialModule } from '../../material/material.module';
 import { RickAndMortyService } from '../../services/rick-and-morty.service';
 import { HttpClientModule } from '@angular/common/http';
+import {MatDialog} from '@angular/material/dialog';
+import { PersonajeComponent } from '../personaje/personaje.component';
 
 @Component({
   selector: 'app-lista-personajes',
@@ -18,7 +20,10 @@ export class ListaPersonajesComponent implements OnInit{
 
   listaPersonajes: any = {}
 
-  constructor(private RyM: RickAndMortyService){}
+  constructor(
+    private RyM: RickAndMortyService,
+    private dialog: MatDialog
+    ){}
 
   ngOnInit(): void {
    this.RyM.obtenerPersonajes().subscribe({
@@ -34,6 +39,14 @@ export class ListaPersonajesComponent implements OnInit{
 
   siguientePagina(nextUrl: string): void {
     this.RyM.nextPage(nextUrl).subscribe({})
+  }
+
+  openDialog(id: string) {
+    this.dialog.open(PersonajeComponent, {
+      data: {
+        id
+      },
+    });
   }
 
 }
